@@ -25,3 +25,28 @@ export const fetchSongs = async (page=1) => {
           : null,
       };
     };
+    
+
+export const fetchSongsEdit = async (id) => {
+    const token = localStorage.getItem("authToken");
+    const response = await fetch(
+        `https://sandbox.academiadevelopers.com/harmonyhub/songs/${id}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: token ? `Token ${token}` : "",
+          },
+        }
+      );
+      if (!response.ok) {
+        throw new Error("Error al obtener los artículos");
+      }
+    
+      const data = await response.json();
+    
+      return {
+        songs: data.results
+      };
+    };
+
