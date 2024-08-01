@@ -1,7 +1,8 @@
 import React from 'react'
+import Song from './Components/Songs'
 
 export const App = () => {
   return (
-    <div className='container'>App</div>
+    <Song />
   )
 }
