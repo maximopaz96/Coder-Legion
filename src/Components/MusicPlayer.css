@@ -1,0 +1,96 @@
+#barraprogreso{
+    margin-bottom: 200px;
+}
+
+#color{
+    
+    width: 650px;
+    height: 200px;
+}
+#barra{
+    width: 150px;
+    height: 50px;
+    margin-right: 30px;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+#contenedor{
+    --bs-btn-padding-x: -58.25rem;
+    --bs-btn-padding-y: 13.375rem;
+}
+/* MusicPlayer.css */
+/* MusicPlayer.css */
+.music-player-card {
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.music-player-card .card-header {
+    border-bottom: 2px solid #007bff;
+}
+
+.music-player-card .progress-bar {
+    background-color: #007bff;
+}
+
+.music-player-card .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.music-player-card .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.music-player-card .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.music-player-card .btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+/* Personalización del control deslizante de volumen */
+.music-player-card .form-range {
+
+    width: 100%;
+    height: 8px;
+    background: #ddd;
+    border-radius: 5px;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .15s ease-in-out;
+}
+
+.music-player-card .form-range:hover {
+    opacity: 1;
+}
+
+.music-player-card .form-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #007bff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.music-player-card .form-range::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #007bff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.music-player-card .form-range::-ms-thumb {
+    width: 20px;
+    height: 20px;
+    background: #007bff;
+    border-radius: 50%;
+    cursor: pointer;
+}
