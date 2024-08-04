@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { fetchSongs } from '../Hooks/ConSong';
-
-const Songs = () => {
-  const [songs, setSongs] = useState([]);
+import { MusicPlayer } from './MusicPlayer';
+//import EditSongPartial from './EditSongPartial';
+export const Songs = () => {
+  const [songs, setSongs] = useState([
+  ]);
   const [totalCount, setTotalCount] = useState(0);
   const [prevPage, setPrevPage] = useState(null);
   const [nextPage, setNextPage] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [currentSongIndex, setCurrentSongIndex] = useState(0);
 
+ 
   // Función para cargar canciones
   const loadSongs = async (page) => {
     setLoading(true);
@@ -27,11 +31,37 @@ const Songs = () => {
       setLoading(false);
     }
   };
-
-  // Efecto para cargar canciones iniciales
   useEffect(() => {
     loadSongs(currentPage);
   }, [currentPage]);
+
+
+  // Función para eliminar una canción
+  const handleDelete = async (id) => {
+    if (window.confirm("¿Estás seguro de que quieres eliminar esta canción?")) {
+      try {
+        await deleteSong(id);
+        // Re-cargar las canciones después de eliminar
+        loadSongs(currentPage);
+      } catch (error) {
+        setError(error.message);
+      }
+    }
+  };
+
+  // Efecto para cargar canciones iniciales
+ 
+
+  const handleEditPartial = (id) => {
+    setSelectedSongId(id);
+  };
+
+  const handleCloseEdit = () => {
+    setSelectedSongId(null);
+  };
+  const handlePlay = (index) => {
+    setCurrentSongIndex(index);
+  };
 
   return (
     <div>
@@ -39,7 +69,7 @@ const Songs = () => {
       {loading && <p>Cargando...</p>}
       {error && <p style={{ color: 'red' }}>Error: {error}</p>}
       <ul className="song-list">
-        {songs.map(song => (
+        {songs.map((song,index) => (
           <li key={song.id} className="song-item">
             <div className="song-title">{song.title}</div>
             <div className="song-details">Álbum: {song.album}</div>
@@ -49,6 +79,15 @@ const Songs = () => {
             <div className="song-details">Duración: {song.duration} segundos</div>
             <div className="song-details">Fecha de Creación: {new Date(song.created_at).toLocaleDateString()}</div>
             <div className="song-details">Fecha de Actualización: {new Date(song.updated_at).toLocaleDateString()}</div>
+            
+            <div>
+            
+            <MusicPlayer  
+                songs={songs}
+               currentSongIndex={currentSongIndex}
+               setCurrentSongIndex={setCurrentSongIndex} />
+            
+        </div>
           </li>
         ))}
       </ul>
@@ -56,8 +95,13 @@ const Songs = () => {
         {prevPage && <button onClick={() => loadSongs(prevPage)}>Anterior</button>}
         {nextPage && <button onClick={() => loadSongs(nextPage)}>Siguiente</button>}
       </div>
+        
     </div>
   );
 };
 
-export default Songs;
+
+
+
+
+
