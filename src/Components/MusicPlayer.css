@@ -1,9 +1,11 @@
-
+#barraprogreso{
+    margin-bottom: 200px;
+}
 
 #color{
     
     width: 650px;
-    height: 300px;
+    height: 200px;
 }
 #barra{
     width: 150px;
