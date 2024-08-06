@@ -43,10 +43,10 @@ export const NavBar = () => {
               
           {auth.isAuthenticated ? (
           <>
-            <li>Welcome, {auth.username}</li>
-            <li>
+            <div>Bienvenido {auth.username}</div>
+          
               <button onClick={handleLogout}>Cerrar Sesión</button>
-            </li>
+            
           </>
         ) : (
           <Link className="btn btn-primary" to="/login">Login</Link>
