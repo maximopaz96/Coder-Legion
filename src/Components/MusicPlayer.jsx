@@ -81,13 +81,13 @@ export const MusicPlayer = ({songs,currentSongIndex,setCurrentSongIndex}) => {
                             className="btn btn-secondary mx-2"
                             onClick={playPreviousSong}
                         >
-                            <i className="bi bi-skip-start"></i> Anterior
+                            <i className="bi bi-skip-start"></i>
                         </button>
                         <button
                             className="btn btn-secondary mx-2"
                             onClick={handleRewind}
                         >
-                            <i className="bi bi-arrow-left-circle"></i> Retroceder
+                            <i className="bi bi-arrow-left-circle"></i>
                         </button>
                         <button 
                             
@@ -103,13 +103,13 @@ export const MusicPlayer = ({songs,currentSongIndex,setCurrentSongIndex}) => {
                             className="btn btn-secondary mx-2"
                             onClick={handleFastForward}
                         >
-                            Avanzar <i className="bi bi-arrow-right-circle"></i>
+                            <i className="bi bi-arrow-right-circle"></i>
                         </button>
                         <button
                             className="btn btn-secondary mx-2"
                             onClick={playNextSong}
                         >
-                            Siguiente <i className="bi bi-skip-end"></i>
+                            <i className="bi bi-skip-end"></i>
                         </button>
                     </div>
                     <div className="progress mt-3" >

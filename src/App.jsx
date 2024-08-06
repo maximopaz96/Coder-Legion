@@ -10,6 +10,8 @@ import{MusicPlayer} from './Components/MusicPlayer';
 
 
 
+
+
 export const App = () => {
   
     const routes = useRoutes([
@@ -18,6 +20,8 @@ export const App = () => {
       { path: "/login", element: <Login /> },
       {path: "/songs", element: <Songs />},
       {path:"/musicplayer",element: <MusicPlayer />},
+     
+      
      
     ]);
     
@@ -29,6 +33,7 @@ export const App = () => {
                 {routes} {/* Renderizar las rutas definidas */}
             </div>
       </AuthProvider>
+  
   );
 
 

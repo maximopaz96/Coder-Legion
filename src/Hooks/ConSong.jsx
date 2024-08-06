@@ -25,7 +25,31 @@ export const fetchSongs = async (page=1) => {
           : null,
       };
     };
-    
+  
+// ConSong.jsx
+export const createSong = async (songData) => {
+  const token = localStorage.getItem("authToken");
+
+  const response = await fetch(
+    `https://sandbox.academiadevelopers.com/harmonyhub/songs/`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token ? `Token ${token}` : "",
+      },
+      body: JSON.stringify(songData),
+    }
+  );
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`Error al crear la canción: ${errorText}`);
+  }
+
+  return await response.json();
+};
+
 
 export const fetchSongsEdit = async (id) => {
     const token = localStorage.getItem("authToken");
@@ -75,28 +99,36 @@ export const fetchSongsEdit = async (id) => {
     };
 
 //Metodo Delete   
-export const  fetchSongDelete = async (id) => {
-    const token = localStorage.getItem("authToken");
+// Método Delete
+export const fetchSongDelete = async (id) => {
+  const token = localStorage.getItem("authToken");
+
+  try {
     const response = await fetch(
-        `https://sandbox.academiadevelopers.com/harmonyhub/songs/${id}`,
-        {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: token ? `Token ${token}` : "",
-          },
-        }
-      );
-      if (!response.ok) {
-        throw new Error("Error al eliminar");
+      `https://sandbox.academiadevelopers.com/harmonyhub/songs/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token ? `Token ${token}` : "",
+        },
       }
-    
-      const data = await response.json();
-    
-      return (
-        data
-      )
-}
+    );
+
+    // Verifica si la respuesta no es OK
+    if (!response.ok) {
+      const errorText = await response.text(); // Obtiene el cuerpo de la respuesta si hay un error
+      console.error('Error:', errorText); // Registra el mensaje de error
+      throw new Error(`Error al eliminar: ${errorText}`);
+    }
+
+    return {}; // Devuelve un objeto vacío si es exitoso
+  } catch (error) {
+    console.error('Error capturado:', error.message); // Registra los errores capturados
+    throw error; // Vuelve a lanzar el error para que lo maneje el llamador
+  }
+};
+
 
 //Metodo patch
 
