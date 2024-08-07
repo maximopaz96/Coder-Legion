@@ -4,12 +4,9 @@ import { MusicPlayer } from './MusicPlayer';
 
 import { CreateSongModal } from './Songs/CreateSongModal';
 import './Css/Songs.css';
-//import EditSongPartial from './EditSongPartial';
+
 export const Songs = () => {
-  const [songs, setSongs] = useState([
-  ]);
-  
-  
+  const [songs, setSongs] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [prevPage, setPrevPage] = useState(null);
   const [nextPage, setNextPage] = useState(null);
@@ -20,6 +17,7 @@ export const Songs = () => {
   const [selectedSongId, setSelectedSongId] = useState(null);
   const [editingSong, setEditingSong] = useState(null);
   const [showCreateModal, setShowCreateModal] = useState(false);
+  const [currentSong, setCurrentSong] = useState(null);
  
   // Función para cargar canciones
   const loadSongs = async (page) => {
@@ -96,16 +94,26 @@ export const Songs = () => {
 
   return (
     <div>
-      <h1>Lista de Canciones</h1>
+      <h1 id="h1">Lista de Canciones</h1>
       <button className="btn btn-primary" onClick={handleCreateSong}>Crear Canción</button>
       {loading && <p>Cargando...</p>}
       {error && <p style={{ color: 'red' }}>Error: {error}</p>}
+      {currentSongIndex !== null && (
+          <MusicPlayer
+            songs={songs}
+            currentSongIndex={currentSongIndex}
+            setCurrentSongIndex={setCurrentSongIndex}
+          />
+        )}
       <div className="card border-primary mb-3"id="card">
       
         {songs.map((song,index) => (
           <div key={song.id} className="song-item">
             <div className="card-header">{song.title}</div>
+      <div>
       
+      </div>
+
       <div className="card-body text-primary">
       <div className="song-details">Álbum: {song.album}</div>
             <div className="song-details">Artista(s): {song.artists.join(', ')}</div>
@@ -121,6 +129,7 @@ export const Songs = () => {
               </div>
             
       </div>
+      
       </div>
         ))}
           {editingSong && (
@@ -139,8 +148,9 @@ export const Songs = () => {
           {console.log('Modal se está renderizando')}
           </>
         )}
+        
       </div>
-         
+     
             
       
       <div className="pagination">
