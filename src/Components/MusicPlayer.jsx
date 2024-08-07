@@ -5,9 +5,6 @@ export const MusicPlayer = ({songs,currentSongIndex,setCurrentSongIndex}) => {
     const [isPlaying, setIsPlaying] = useState(false);
     const [progress, setProgress] = useState(0);
     const [volume, setVolume] = useState(1);
-    
-
-
     const audioRef = useRef(null);
 
     const togglePlayPause = () => {
@@ -64,8 +61,8 @@ export const MusicPlayer = ({songs,currentSongIndex,setCurrentSongIndex}) => {
     }, [volume]);
 
     return (
-        <div className="container mt-5">
-            <div className="music-player-card card border-primary mb-3" id="color">
+        <div className="container mt-5" id="color">
+            <div className="music-player-card card border-primary mb-3" >
                 <div className="card-header text-white bg-primary">
                     <h5 className="card-title">Reproductor de Música</h5>
                 </div>
@@ -81,13 +78,13 @@ export const MusicPlayer = ({songs,currentSongIndex,setCurrentSongIndex}) => {
                             className="btn btn-secondary mx-2"
                             onClick={playPreviousSong}
                         >
-                            <i className="bi bi-skip-start"></i> Anterior
+                            <i className="bi bi-skip-start"></i>
                         </button>
                         <button
                             className="btn btn-secondary mx-2"
                             onClick={handleRewind}
                         >
-                            <i className="bi bi-arrow-left-circle"></i> Retroceder
+                            <i className="bi bi-arrow-left-circle"></i>
                         </button>
                         <button 
                             
@@ -103,13 +100,13 @@ export const MusicPlayer = ({songs,currentSongIndex,setCurrentSongIndex}) => {
                             className="btn btn-secondary mx-2"
                             onClick={handleFastForward}
                         >
-                            Avanzar <i className="bi bi-arrow-right-circle"></i>
+                            <i className="bi bi-arrow-right-circle"></i>
                         </button>
                         <button
                             className="btn btn-secondary mx-2"
                             onClick={playNextSong}
                         >
-                            Siguiente <i className="bi bi-skip-end"></i>
+                            <i className="bi bi-skip-end"></i>
                         </button>
                     </div>
                     <div className="progress mt-3" >
