@@ -8,6 +8,9 @@ import { AuthProvider } from './Contexts/AuthContext';
 import { NavBar } from './Components/Navbar';
 import{MusicPlayer} from './Components/MusicPlayer';
 
+import { Artist } from './Components/Artist';
+import { ModalArtist } from './Components/Artist/ModalArtist';
+
 
 
 export const App = () => {
@@ -18,6 +21,9 @@ export const App = () => {
       { path: "/login", element: <Login /> },
       {path: "/songs", element: <Songs />},
       {path:"/musicplayer",element: <MusicPlayer />},
+      {path:"/modalartist", element: <ModalArtist />},
+      
+      {path:"/Artist",element: <Artist />},
      
     ]);
     

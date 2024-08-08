@@ -1,4 +1,4 @@
-export const fetchSongs = async (page=1) => {
+export const fetchArtists = async (page=1) => {
     const token = localStorage.getItem("authToken");
     const response = await fetch(
         `https://sandbox.academiadevelopers.com/harmonyhub/artists/?page=${page}`,

@@ -95,7 +95,7 @@ export const fetchPlaylists = async (page = 1) => {
   
     return response.json();
   };
-  export const deletePlaylistById = async (id) => {
+  export const deletePlaylist = async (id) => {
     const token = localStorage.getItem("authToken");
   
     const response = await fetch(`https://sandbox.academiadevelopers.com/harmonyhub/playlists/${id}/`, {
