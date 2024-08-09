@@ -52,7 +52,7 @@ export const CreateSongModal = ({ onClose, onSongCreated }) => {
               type="text"
               value={album}
               onChange={(e) => setAlbum(e.target.value)}
-              required
+              
             />
           </label>
           <label>
@@ -97,3 +97,4 @@ export const CreateSongModal = ({ onClose, onSongCreated }) => {
     </div>
   );
 };
+export default CreateSongModal;

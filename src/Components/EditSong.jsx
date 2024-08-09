@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { updateSong } from '../Hooks/ConSong'; 
 
-const EditSong = ({ songId, onClose }) => {
+ export const EditSong = ({ songId, onClose }) => {
   const [song, setSong] = useState({
     title: '',
     year: '',
@@ -95,4 +95,4 @@ const EditSong = ({ songId, onClose }) => {
   );
 };
 
-export default EditSong;
+

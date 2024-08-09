@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { fetchSongs,fetchSongDelete,updateSong } from '../Hooks/ConSong';
 import { MusicPlayer } from './MusicPlayer';
-
+import {EditSong} from './EditSong';
 import { CreateSongModal } from './Songs/CreateSongModal';
 import './Css/Songs.css';
 
@@ -133,12 +133,12 @@ export const Songs = () => {
       </div>
         ))}
           {editingSong && (
-        <EditSongForm
+        <EditSong
           song={editingSong}
           onClose={handleCloseEdit}
           onSave={handleSaveEdit}
         />
-      )}
+       )}
        {showCreateModal && (
          <>
          <CreateSongModal

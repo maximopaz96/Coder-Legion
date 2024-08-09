@@ -7,6 +7,7 @@ import { AboutScreen } from './Routes/AboutScreen';
 import { AuthProvider } from './Contexts/AuthContext';
 import { NavBar } from './Components/Navbar';
 import{MusicPlayer} from './Components/MusicPlayer';
+import { Artist } from './Components/Artist'; 
 
 
 
@@ -20,6 +21,8 @@ export const App = () => {
       { path: "/login", element: <Login /> },
       {path: "/songs", element: <Songs />},
       {path:"/musicplayer",element: <MusicPlayer />},
+      {path:"/artist",element: <Artist />},
+    
      
       
      
